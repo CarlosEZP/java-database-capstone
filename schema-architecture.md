@@ -7,4 +7,7 @@ This Spring Boot application uses both MVC and REST controllers. Thymeleaf templ
 1. User accesses AdminDashboard or Appointment pages.
 2. The action is routed to the appropriate Thymeleaf or REST controller.
 3. The controller calls the service layer.
-4. The Service layer retrieve data from MySQL or MongoDB repositories through Hibernate - JPA.
+4. The Service layer retrieve data from repositories.
+5. MySQL or MongoDB repositories are called to access the Data Base.
+6. Data Access retrieve the data from models in the Data Base.
+7. The data is returned to user.

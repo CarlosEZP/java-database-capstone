@@ -68,6 +68,10 @@ public class Appointment {
     private LocalDateTime getEndTime(){
         return this.appointmentTime.plusHours(1L);
     }
+    @NotNull
+    private LocalDateTime created_at;
+    @NotNull
+    private LocalDateTime updated_at;
 // 7. 'getAppointmentDate' method:
 //    - Type: private LocalDate
 //    - Description:
@@ -86,19 +90,21 @@ public class Appointment {
     private LocalTime getAppointmentTimeOnly(){
         return this.appointmentTime.toLocalTime();
     }
-// 9. Constructor(s):
+
+    // 9. Constructor(s):
 //    - A no-argument constructor is implicitly provided by JPA for entity creation.
 //    - A parameterized constructor can be added as needed to initialize fields.
     public Appointment(){}
-
-    public Appointment(Long id, Doctor doctor, Patient patient, LocalDateTime appointmentTime, int status) {
+    public Appointment(Long id, Doctor doctor, Patient patient, LocalDateTime appointmentTime, int status, LocalDateTime created_at, LocalDateTime updated_at) {
         this.id = id;
         this.doctor = doctor;
         this.patient = patient;
         this.appointmentTime = appointmentTime;
         this.status = status;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
     }
-    // 10. Getters and Setters:
+// 10. Getters and Setters:
 //    - Standard getter and setter methods are provided for accessing and modifying the fields: id, doctor, patient, appointmentTime, status, etc.
 
     public Long getId() {
@@ -130,6 +136,18 @@ public class Appointment {
     }
     public void setStatus(int status) {
         this.status = status;
+    }
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
+    }
+    public void setUpdated_at(LocalDateTime updated_at) {
+        this.updated_at = updated_at;
     }
 }
 

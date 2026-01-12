@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -82,6 +83,10 @@ public class Doctor {
 //      - The @ElementCollection annotation ensures that the list of time slots is stored as a separate collection in the database.
     @ElementCollection
     private List<String> availableTimes;
+    @NotNull
+    private LocalDateTime created_at;
+    @NotNull
+    private LocalDateTime updated_at;
 // 8. Getters and Setters:
 //    - Standard getter and setter methods are provided for all fields: id, name, specialty, email, password, phone, and availableTimes.
 
@@ -127,8 +132,19 @@ public class Doctor {
     public void setAvailableTimes(List<String> availableTimes) {
         this.availableTimes = availableTimes;
     }
-
-    public Doctor(Long id, String name, String specialty, String email, String password, String phone, List<String> availableTimes) {
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
+    }
+    public void setUpdated_at(LocalDateTime updated_at) {
+        this.updated_at = updated_at;
+    }
+    public Doctor(Long id, String name, String specialty, String email, String password, String phone, List<String> availableTimes, LocalDateTime created_at, LocalDateTime updated_at) {
         this.id = id;
         this.name = name;
         this.specialty = specialty;
@@ -136,7 +152,10 @@ public class Doctor {
         this.password = password;
         this.phone = phone;
         this.availableTimes = availableTimes;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
     }
+
     public Doctor(){}
 }
 

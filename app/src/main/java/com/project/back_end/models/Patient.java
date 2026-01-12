@@ -9,6 +9,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Patient {
 // @Entity annotation:
@@ -71,7 +73,10 @@ public class Patient {
     @NotNull
     @Size(max = 255)
     private String address;
-
+    @NotNull
+    private LocalDateTime created_at;
+    @NotNull
+    private LocalDateTime updated_at;
 // 7. Getters and Setters:
 //    - Standard getter and setter methods are provided for all fields: id, name, email, password, phone, and address.
 //    - These methods allow access and modification of the fields of the Patient class.
@@ -114,12 +119,14 @@ public class Patient {
     }
 
     public Patient(){}
-    public Patient(Long id, String name, String email, String password, String phone, String address) {
+    public Patient(Long id, String name, String email, String password, String phone, String address, LocalDateTime created_at, LocalDateTime updated_at) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.phone = phone;
         this.address = address;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
     }
 }
